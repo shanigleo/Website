@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shantae Gallegos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+   <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #121212;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent: #ffffff;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.logo {
+    font-family: 'Cormorant', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.7;
+}
+
+nav {
+    display: flex;
+    gap: 3rem;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text-primary);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--text-primary);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.hero-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.hero h1 {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.7s both;
+}
+
+.hero-description {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out 0.9s both;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 2rem;
+    animation: fadeInUp 1s ease-out 1.1s both;
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+/* SECTION STYLES */
+section {
+    padding: 8rem 4rem;
+    position: relative;
+}
+
+.section-header {
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+}
+
+.section-number {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.2em;
+}
+
+.content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ABOUT SECTION */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    margin-top: 4rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.about-stats {
+    display: grid;
+    gap: 3rem;
+}
+
+.stat-item {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-family: 'Cormorant', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.tag {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+/* EXPERIENCE TIMELINE */
+.timeline {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+}
+
+.timeline-item {
+    position: relative;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -3.35rem;
+    top: 3.5rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--text-primary);
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.timeline-title {
+    font-family: 'Cormorant', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-org {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.timeline-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* CONTACT SECTION */
+.contact-content {
+    text-align: center;
+}
+
+.contact-title {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    margin-bottom: 3rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid var(--text-primary);
+    padding-bottom: 0.5rem;
+}
+
+.contact-link:hover {
+    color: var(--text-secondary);
+    border-bottom-color: var(--text-secondary);
+}
+
+/* FOOTER */
+footer {
+    padding: 4rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+}
+
+/* SCROLL REVEAL */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    header {
+        padding: 1.5rem 2rem;
+    }
+
+    nav {
+        gap: 2rem;
+    }
+
+    section {
+        padding: 6rem 2rem;
+    }
+
+    .hero {
+        padding: 6rem 2rem 4rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .research-card {
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn {
+        text-align: center;
+    }
+
+    .timeline {
+        padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+        left: -2.35rem;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+</style>
+    
+</head>
+<body>
+    <div class="container">
+<header>
+    <a href="#home" class="logo">Shantae Gallegos</a>
+<nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+</nav>
+</header>
+
+        <main>
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="hero-label">Biomedical Engineering, Medical Device Development & Mechanobiology</p>
+        <h1>Designing medical devices<br>that solve problems<br>that bridge engineering,<br>medicine, and healing</h1>
+        <p class="hero-description">
+           Developing, characterizing, and computationally modeling medical device platforms that support regenerative therapies and drug discovery for osteoarthritis.<br> Specializing in biomedical engineering, mechanobiology, microfluidic systems, biomaterials, and medical device design. With a background in chemical engineering and pre-medical studies, I use engineering tools to answer biological questions and develop technologies that move research closer to patient impact.
+        </p>
+        <div class="hero-cta">
+
+    </div>
+</section>
+
+
+<section id="about">
+    <div class="content-wrapper">
+        <div class="section-header">
+            <h2 class="section-title">About</h2>
+            <span class="section-number">01</span>
+        </div>
+        
+        <!-- Profile Picture -->
+        <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
+    <div style="width: 250px; height: 250px; margin: 0 auto; border-radius: 50%; overflow: hidden; border: 3px solid var(--text-primary); box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);">
+        <img src="https://github.com/shanigleo/portfolio/raw/main/headshot.jpg" alt="Shantae Gallegos" style="width: 100%; height: 100%; object-fit: cover; object-position: center 50%;">
+    </div>
+</div>
+        
+        <div class="about-grid reveal">
+            <div class="about-text">
+                <p>
+                   My path into biomedical engineering began with two interests that have always shaped the way I think: chemical engineering and medicine.
+                </p>
+                <p>
+                    As an undergraduate, I studied chemical engineering while also pursuing pre-medical coursework, which gave me a strong foundation in materials, transport, chemistry, biology, and human health. I was drawn to the way engineering could be used not only to understand complex systems, but to create tools that help diagnose, treat, and improve disease outcomes.
+                     </p>
+                <p>
+                    Today, my Ph.D. work allows me to bridge those interests directly. I develop and characterize medical device platforms designed to support regenerative therapies and drug discovery for osteoarthritis. My research focuses on building a joint-on-chip system that recreates key features of the joint microenvironment, including cartilage-bone communication, biological signaling, and mechanical loading.
+                  </p>
+                <p>
+                 My work includes device development, mechanical characterization, experimental validation, and computational modeling using Abaqus. By designing the device, testing its performance, and modeling how it behaves under load, I aim to create a platform that can help researchers better understand osteoarthritis progression and evaluate future therapeutic strategies.   
+                      </p>
+                <p>
+                  I'm motivated by problems where engineering has a direct connection to human health  where materials, mechanics, biology, and medicine come together to create something useful, measurable, and impactful.  
+                </p>
+            </div>
+            
+            <div class="about-stats">
+                <div class="stat-item">
+                    <p class="stat-label">Education</p>
+                    <p class="stat-value">University of Colorado Boulder</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-label">Focus Areas</p>
+                    <p class="stat-value">Chemical Engineering<br>Biomedical Engineering<br>Medical Device Development<br>Joint-on-Chip Systems<br>Mechanical Characterization<br>Drug Discovery Platforms<br>Abaqus Modeling<br>Mechanobiology<br>Microfluidics<br>Biomaterials<br>Translational Medicine
+                    </p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-label">Graduation</p>
+                    <p class="stat-value">May 2026</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE SECTION -->
+<section id="experience">
+    <div class="content-wrapper">
+        <div class="section-header">
+            <h2 class="section-title">Experience</h2>
+            <span class="section-number">02</span>
+        </div>
+
+        <div class="timeline reveal">
+            <!-- Undergraduate Researcher -->
+            <div class="timeline-item">
+                <p class="timeline-date">August 2025 - Present</p>
+                <h3 class="timeline-title">Undergraduate Researcher</h3>
+                <p class="timeline-org">Neu Research Lab, CU Boulder</p>
+                <div class="timeline-description">
+                    <p style="color: var(--text-primary); font-size: 1.05rem; margin-bottom: 1rem;">Aiding in the development of mechanical systems to study how joints deteriorate down under load and how to stop it.</p>
+                </div>
+            </div>
+
+            <!-- Brain Phantom Project -->
+            <div class="timeline-item">
+                <p class="timeline-date">August 2025 - Present</p>
+                <h3 class="timeline-title">Test & Systems Engineer</h3>
+                <p class="timeline-org">3D-Printed Brain Phantom Project (Industry Partnership)</p>
+                <div class="timeline-description">
+                    <p style="color: var(--text-primary); font-size: 1.05rem; margin-bottom: 1rem;">Making sure a 3D-printed brain phantom can survive the real world and work in an MRI machine.</p>
+                    
+                    <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'; this.textContent = this.textContent === 'Learn More →' ? 'Show Less ↑' : 'Learn More →'" 
+                            style="background: transparent; border: none; color: var(--text-secondary); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; padding: 0; margin-top: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: all 0.3s ease; font-family: 'Work Sans', sans-serif;">
+                        Learn More →
+                    </button>
+                    
+                    <div style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <p style="margin-bottom: 1rem;">Our team partnered with an industry partner to develop a biomimetic brain phantom for MRI calibration. My job was to figure out where and how it would fail. I designed test protocols to push the device to its limits—checking if seals would leak, if thin walls would collapse, if the whole thing would hold up under handling and shipping.</p>
+                        <p>I documented every potential failure mode, ranked them by risk, and presented findings to the industry partner team so they could make informed design decisions. It's the unglamorous work that keeps medical devices from falling apart when they matter most.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MPOWR Kickboxing -->
+            <div class="timeline-item">
+                <p class="timeline-date">May 2025 - Present</p>
+                <h3 class="timeline-title">Startup Operations & Innovation Intern</h3>
+                <p class="timeline-org">MPOWR Kickboxing, Golden, CO</p>
+                <div class="timeline-description">
+                    <p style="color: var(--text-primary); font-size: 1.05rem; margin-bottom: 1rem;">Helping build a franchise from the ground up as employee number one.</p>
+                    
+                    <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'; this.textContent = this.textContent === 'Learn More →' ? 'Show Less ↑' : 'Learn More →'" 
+                            style="background: transparent; border: none; color: var(--text-secondary); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; padding: 0; margin-top: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: all 0.3s ease; font-family: 'Work Sans', sans-serif;">
+                        Learn More →
+                    </button>
+                    
+                    <div style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <p style="margin-bottom: 1rem;">When you're the first hire at a new franchise, you do a little bit of everything. I built the member onboarding system from scratch, created training materials that could scale across future locations, and figured out how to turn social media into a tool for community growth, not just marketing.</p>
+                        <p>It's taught me how to build systems that work when you're not in the room, and how to iterate quickly when something isn't working.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Head Swim Coach -->
+            <div class="timeline-item">
+                <p class="timeline-date">2022 - 2024</p>
+                <h3 class="timeline-title">Head Swim Coach</h3>
+                <p class="timeline-org">Competitive Swimming Program</p>
+                <div class="timeline-description">
+                    <p style="color: var(--text-primary); font-size: 1.05rem; margin-bottom: 1rem;">From the pool deck to head coach—managing 100+ athletes while juggling a full course load.</p>
+                    
+                    <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'; this.textContent = this.textContent === 'Learn More →' ? 'Show Less ↑' : 'Learn More →'" 
+                            style="background: transparent; border: none; color: var(--text-secondary); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; padding: 0; margin-top: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: all 0.3s ease; font-family: 'Work Sans', sans-serif;">
+                        Learn More →
+                    </button>
+                    
+                    <div style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <p style="margin-bottom: 1rem;">After 12 years as a competitive swimmer and serving as varsity team captain, I joined the coaching staff as an assistant. A year later, I was promoted to head coach, the youngest in the program's history. Suddenly I was responsible for training programs, team culture, and managing six assistant coaches, all while carrying a full engineering course load during peak season.</p>
+                        <p>It forced me to get really good at delegation, communication, and staying calm under pressure. Leading a team of 100+ athletes teaches you things you can't learn in a classroom, like how to give feedback that actually lands, how to motivate people who are exhausted, and how to make hard calls when everyone's watching.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LEADERSHIP SECTION -->
+<section id="leadership" style="background: var(--bg-secondary);">
+    <div class="content-wrapper">
+        <div class="section-header">
+            <h2 class="section-title">Leadership & Recognition</h2>
+            <span class="section-number">03</span>
+        </div>
+
+        <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+            
+            <!-- Boulderthon Card -->
+            <div style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%); padding: 3rem; border: 1px solid var(--border); border-radius: 8px; border-left: 4px solid var(--text-primary); transition: all 0.3s ease;">
+                <p style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem;">2025</p>
+                <h3 style="font-family: 'Cormorant', serif; color: var(--text-primary); font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 400; line-height: 1.2;">Boulderthon Finisher</h3>
+                <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">26.2 miles in memory of a friend lost to suicide. Some runs are about time. This one was about showing up and not forgetting.</p>
+            </div>
+
+            <!-- Robbie's Hope Card -->
+            <div style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%); padding: 3rem; border: 1px solid var(--border); border-radius: 8px; border-left: 4px solid var(--text-primary); transition: all 0.3s ease;">
+                <p style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem;">Ongoing</p>
+                <h3 style="font-family: 'Cormorant', serif; color: var(--text-primary); font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 400; line-height: 1.2;">Robbie's Hope Ambassador</h3>
+                <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">Working to make mental health conversations normal, not uncomfortable. Teen suicide prevention starts with breaking the silence.</p>
+            </div>
+
+            <!-- Head Swim Coach Card -->
+            <div style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%); padding: 3rem; border: 1px solid var(--border); border-radius: 8px; border-left: 4px solid var(--text-primary); transition: all 0.3s ease;">
+                <p style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem;">2022 - 2024</p>
+                <h3 style="font-family: 'Cormorant', serif; color: var(--text-primary); font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 400; line-height: 1.2;">Head Swim Coach</h3>
+                <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">Youngest head coach in program history. Led 100+ athletes while balancing engineering coursework. Learned more about leadership from the pool deck than any classroom could teach.</p>
+            </div>
+
+            <!-- Varsity Captain Card -->
+            <div style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%); padding: 3rem; border: 1px solid var(--border); border-radius: 8px; border-left: 4px solid var(--text-primary); transition: all 0.3s ease;">
+                <p style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem;">12 Years</p>
+                <h3 style="font-family: 'Cormorant', serif; color: var(--text-primary); font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 400; line-height: 1.2;">Competitive Swimmer</h3>
+                <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">Varsity captain. 4.0+ GPA. 12 years of early mornings and chlorine-soaked hair. Swimming taught me what discipline actually looks like—and that consistency beats talent every time.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+        
+<!-- SKILLS SECTION -->
+<section id="skills">
+    <div class="content-wrapper">
+        <div class="section-header">
+            <h2 class="section-title">Technical Skills</h2>
+            <span class="section-number">04</span>
+        </div>
+
+        <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <!-- CAD & Design -->
+            <div style="padding: 2rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; border-left: 3px solid var(--text-primary); transition: all 0.3s ease;">
+                <h3 style="font-family: 'Cormorant', serif; color: var(--text-primary); font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 400;">CAD & Design</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                    <span class="tag">3D Modeling</span>
+                    <span class="tag">Prototyping</span>
+                </div>
+            </div>
+
+            <!-- Lab & Fabrication -->
+            <div style="padding: 2rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; border-left: 3px solid var(--text-primary); transition: all 0.3s ease;">
+                <h3 style="font-family: 'Cormorant', serif; color: var(--text-primary); font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 400;">Lab & Fabrication</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                    <span class="tag">Microfluidics</span>
+                    <span class="tag">PDMS Fabrication</span>
+                    <span class="tag">Confocal Microscopy</span>
+                    <span class="tag">Mechanical Testing</span>
+                </div>
+            </div>
+
+            <!-- Analysis & Programming -->
+            <div style="padding: 2rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; border-left: 3px solid var(--text-primary); transition: all 0.3s ease;">
+                <h3 style="font-family: 'Cormorant', serif; color: var(--text-primary); font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 400;">Analysis & Programming</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">ImageJ</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Protocol Development</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+<!-- CONTACT SECTION -->
+<section id="contact" style="background: var(--bg-secondary);">
+    <div class="content-wrapper">
+        <div class="contact-content reveal">
+            <h2 class="contact-title">Let's work together on<br>problems that matter</h2>
+            <div class="contact-links">
+                <a href="mailto:Shantae.Gallegos@colorado.edu" class="contact-link">Shantae.Gallegos@colorado.edu</a>
+                <a href="https://www.linkedin.com/in/shantae-gallegos/" target="_blank" class="contact-link">LinkedIn</a>
+                <a href="https://github.com/shantaegallegos" target="_blank" class="contact-link">GitHub</a>
+            </div>
+        </div>
+    </div>
+</section>
+           
+        <footer>
+    <p>© 2025 Shantae Gallegos • Biomedical Engineering • University of Colorado Boulder</p>
+</footer>
+    </div>
+</body>
+    <script>
+    // Scroll reveal animation
+    function reveal() {
+        const reveals = document.querySelectorAll('.reveal');
+        
+        reveals.forEach(element => {
+            const windowHeight = window.innerHeight;
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                element.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', reveal);
+    reveal();
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+</html>
